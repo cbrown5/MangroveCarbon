@@ -1,0 +1,12 @@
+bibentry(bibtype = "Article",
+         title = "The undervalued contribution of mangrove protection in Mexico to carbon emission targets",
+         author = c(person("Adame"),
+                    person("Brown"),
+		    person("Bejarano"),
+                    person("Herrera-Silveira"),
+                    person("Kauffmann"),
+		    person("Birdsey")	
+),
+        journal = {"Conservation Letters"},
+         year = 2018,
+         url = "http://onlinelibrary.wiley.com/doi/10.1111/conl.12445/full")

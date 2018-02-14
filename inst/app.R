@@ -4,7 +4,6 @@ library(plotly)
 
 #TODO: Need to check values out of model are signs correct? 
 # Add CITATION file
-# Post to github
 # Add loading bar
 
 ui <- fluidPage(
