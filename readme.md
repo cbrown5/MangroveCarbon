@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 # Estimate carbon emissions from mangrove deforestation
 
  CJ Brown 2018-02-14
@@ -11,9 +15,6 @@ Please cite that publication if you use this code.
 An interactive web app that runs these models is available on the [Shiny Server](https://seascapemodels.shinyapps.io/inst/).
 
 Please contact chris.brown@griffith.edu.au or pull a request on this github project if you have any queries.
----
-layout: home
----
 
 ## Using this package
 
