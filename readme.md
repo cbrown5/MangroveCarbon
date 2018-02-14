@@ -10,8 +10,6 @@ An interactive web app that runs these models is available on the [Shiny Server]
 
 Please contact chris.brown@griffith.edu.au or pull a request on this github project if you have any queries.
 
-![](data-raw/figures/cumulative_emissions.png)
-
 ## Using this package
 
 To use package, open R and type:
