@@ -1,8 +1,10 @@
 # Estimate carbon emissions from mangrove deforestation
 
- CJ Brown 2018-02-14
+2018-02-14
+Data compiled by: Fernanda Adame
+Code by: CJ Brown
 
- This is supplementary material prepared in support of the publication:
+This is supplementary material prepared in support of the publication:
 
 [Adame, Brown, Bejarano, Herrera-Silveira, Ezcurra, Kauffman, Birdsey. In Press. The undervalued contribution of mangrove protection in Mexico to carbon emission targets. Conservation Letters. DOI: 10.1111/conl.12445](http://onlinelibrary.wiley.com/doi/10.1111/conl.12445/full)
 
