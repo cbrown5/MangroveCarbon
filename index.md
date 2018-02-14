@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 # Estimate carbon emissions from mangrove deforestation
 
  CJ Brown 2018-02-14
