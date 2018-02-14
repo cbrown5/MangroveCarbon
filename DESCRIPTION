@@ -1,0 +1,13 @@
+Package: MangroveCarbon
+Type: Package
+Title: Estimate carbon emissions from mangrove deforestation
+Version: 4.0
+Date: 2018-02-14
+Author: CJ Brown
+Maintainer: CJ Brown <chris.brown@griffith.edu.au>
+Description: Estimate carbon emissions from deforestation and degradation of forests, given rates of deforestation and degradation, carbon contents and emissions rates. Accounts for uncertainty in CO2 per hectare.
+License: MIT + file LICENSE
+Imports:
+        devtools,
+        dplyr,
+        plotly

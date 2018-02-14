@@ -1,0 +1,13 @@
+name: inst
+title: inst
+username:
+account: seascapemodels
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 280458
+bundleId: 1222089
+url: https://seascapemodels.shinyapps.io/inst/
+when: 1518581112.33225
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Rplots.pdf
