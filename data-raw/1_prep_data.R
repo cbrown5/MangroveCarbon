@@ -4,15 +4,18 @@
 rm(list = ls())
 library(devtools)
 library(dplyr)
-load_all('~/MangroveCarbon')
+setwd("~/Code/MangroveCarbon")
+load_all('MangroveCarbon')
+
 
 #
 # Load data
 #
 
-emdat <- read.csv('~/MangroveCarbon/data-raw/emission_dat_12May2017.csv', header = T)
-fdat <- read.csv('~/MangroveCarbon/data-raw/dat_forest_loss.csv', header = T)
-defrates <- read.csv('~/MangroveCarbon/data-raw/defrates.csv', header = T)
+# emdat <- read.csv('MangroveCarbon/data-raw/emission_dat_1March2018-deeper1m.csv', header = T)
+ emdat <- read.csv('MangroveCarbon/data-raw/emission_dat_1March2018.csv', header = T)
+fdat <- read.csv('MangroveCarbon/data-raw/dat_forest_loss.csv', header = T)
+defrates <- read.csv('MangroveCarbon/data-raw/defrates.csv', header = T)
 
 datscnrs <- vcalc_lossrate(fdat, levels(fdat$region), nrep)
 nrep <- 1000
@@ -65,6 +68,6 @@ names(emsamp_prior) <- emdat_prior$region
 # Save data
 #
 
-devtools::use_data(emsamps, pkg = '~/MangroveCarbon', overwrite = T)
-devtools::use_data(emdat, pkg = '~/MangroveCarbon', overwrite = T)
-devtools::use_data(emsamp_prior, pkg = '~/MangroveCarbon', overwrite = T)
+devtools::use_data(emsamps, pkg = '~/Code/MangroveCarbon/MangroveCarbon', overwrite = T)
+devtools::use_data(emdat, pkg = '~/Code/MangroveCarbon/MangroveCarbon', overwrite = T)
+devtools::use_data(emsamp_prior, pkg = '~/Code/MangroveCarbon/MangroveCarbon', overwrite = T)

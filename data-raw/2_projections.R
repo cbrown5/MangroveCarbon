@@ -6,7 +6,7 @@
 rm(list = ls())
 library(devtools)
 
-load_all('~/MangroveCarbon')
+load_all('~/Code/MangroveCarbon/MangroveCarbon')
 
 data(emdat)
 data(emsamps)
@@ -43,7 +43,7 @@ cum_em_pred <- data.frame(mean = rep(NA, nmaxlim+1), lwr = rep(NA, nmaxlim + 1),
     upr = rep(NA, nmaxlim + 1))
 
 for (imaxlim in 1:nmaxlim){
-    #emdat$emrate <- 50 #to get emissions in year of logging....
+    # emdat$emrate <- 50 #to get emissions in year of logging....
     datout <- lapply(names(emsamps), runregion, ymax, emsamps, emdat, em_names[imaxlim], tplus = 3, tstep = tstep)
     xdat <- sumemissions(datout)
     xout <- xdat/cscale #rescale to mega-tonnes
@@ -101,7 +101,7 @@ emcol_reported <- "darkred"
 dev.new()
 par(las = 1, mar = c(5,5,4,2))
 plot(yrvec, rep(0, length(yrvec)), type = 'n',ylim = ylimscum,
- xlab = 'Years', ylab = expression(paste('Cumulative emissions (Mtonnes ', CO^2,' equivalent)')), xaxt = 'n',
+ xlab = 'Years', ylab = expression(paste('Cumulative emissions (Tg ', CO^2,' eq)')), xaxt = 'n',
  bty = 'n')
 
 abline(v = yrvec[ipt_line], lwd = 2, lty = 2, col = 'grey80')
@@ -109,7 +109,8 @@ axis(1, col = 'black', col.ticks = 'black',  at = atx, labels = xlab)
 
 lines(yrvec, xcum_prior, col = emcol_reported, lwd = 2)
 
-for (imaxlim in 1:nmaxlim){
+# for (imaxlim in 1:nmaxlim){
+for (imaxlim in 2){
     #Line for every year
     # for (i in 1:nsim){
         # lines(yrvec, xcum[,i], col = grey(0.5, 0.3))
@@ -123,30 +124,38 @@ for (imaxlim in 1:nmaxlim){
 }
 text(20, 128.82, "First deadline of the Paris Agreement", srt = 270, pos= 4,
   col = "grey30")
-legend("topleft",
-    legend = c("Upper bound \n emissions", "Lower bound \n emissions",
-    "Reported \n emissions"),
-    lty = 1, col = c(rev(emcols), emcol_reported), lwd = 2, bty = 'n', y.intersp = 1.5)
+ legend("topleft",
+  legend = c("Projected \n emissions",
+  "Reported \n emissions"),
+    lty = 1, col = c(emcols[2], emcol_reported), lwd = 2, bty = 'n', y.intersp = 1.5)
 
-dev.copy2pdf(file = 'data-raw/figures/cumulative_emissions.pdf')
+     # legend = c("Upper bound \n emissions", "Lower bound \n emissions",
+     # "Reported \n emissions"),
+     lty = 1, col = c(rev(emcols), emcol_reported), lwd = 2, bty = 'n', y.intersp = 1.5)
+
+dev.copy2pdf(file = 'Code/MangroveCarbon/MangroveCarbon/data-raw/figures/cumulative_emissions-Mar18.pdf')
 
 
 #
 # Regional emissions
 #
+
 names(emsamps)
 namesvec <- c("Pacific North", "Pacific Central", "Pacific South", "Gulf of Mexico", "Yucatan")
 nregion <- length(datout)
 cols <- RColorBrewer::brewer.pal(5, 'Dark2')
-
+cols[5] <- "blue4"
+lineslwd <- c(2,5,2,2,2)
 ylimscum <- c(0, 60)
+
 dev.new()
 par(las = 1, mar = c(5,5,4,2))
 plot(yrvec, yrvec, type = 'n',ylim = ylimscum,
- xlab = 'Years', ylab = expression(paste('Cumulative emissions (Mtonnes ', CO^2,' equivalent)')), xaxt = 'n',
+ xlab = 'Years', ylab = expression(paste('Cumulative emissions (Tg ', CO^2,' eq)')), xaxt = 'n',
  bty = 'n')
 
-	axis(1, col.ticks = 'black',  at = atx, labels = xlab)
+axis(1, col.ticks = 'black',  at = atx, labels = xlab)
+
 imaxlim <- 2
 for (i in 1:nregion){
     xdat <- dsave[[imaxlim]]$datout[[i]]
@@ -157,11 +166,11 @@ for (i in 1:nregion){
 
 	print(names(datout)[i])
  	print(EC_mean[ipt1])
- 	lines(yrvec, EC_mean, col = cols[i], lwd = 2)
+ 	lines(yrvec, EC_mean, col = cols[i], lwd = lineslwd[i])
 
 	# addpoly(yrvec, EC_quants[1,], y= EC_quants[2,], border = NA, col = hexalpha(cols[i],0.5))
 
 	}
 legend(x = 0, y = 60, legend = namesvec, lwd = 2, lty = 1, col = cols)
 
-dev.copy2pdf(file = 'data-raw/figures/regional_emissions.pdf')
+dev.copy2pdf(file =  'Code/MangroveCarbon/MangroveCarbon/data-raw/figures/regional_emissions-v2.pdf')
