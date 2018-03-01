@@ -12,6 +12,8 @@ data(emdat)
 data(emsamps)
 data(emsamp_prior)
 
+instant_emissions <- FALSE #Set TRUE to get emissions in year of logging (no time lag in emissions)
+
 #
 # Parameters
 #
@@ -43,7 +45,9 @@ cum_em_pred <- data.frame(mean = rep(NA, nmaxlim+1), lwr = rep(NA, nmaxlim + 1),
     upr = rep(NA, nmaxlim + 1))
 
 for (imaxlim in 1:nmaxlim){
-    # emdat$emrate <- 50 #to get emissions in year of logging....
+ if(instant_emissions){
+     emdat$emrate <- 50
+}
     datout <- lapply(names(emsamps), runregion, ymax, emsamps, emdat, em_names[imaxlim], tplus = 3, tstep = tstep)
     xdat <- sumemissions(datout)
     xout <- xdat/cscale #rescale to mega-tonnes
@@ -128,7 +132,6 @@ text(20, 128.82, "First deadline of the Paris Agreement", srt = 270, pos= 4,
   legend = c("Projected \n emissions",
   "Reported \n emissions"),
     lty = 1, col = c(emcols[2], emcol_reported), lwd = 2, bty = 'n', y.intersp = 1.5)
-
      # legend = c("Upper bound \n emissions", "Lower bound \n emissions",
      # "Reported \n emissions"),
      lty = 1, col = c(rev(emcols), emcol_reported), lwd = 2, bty = 'n', y.intersp = 1.5)

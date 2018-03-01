@@ -2,8 +2,7 @@
 library(shiny)
 library(plotly)
 
-#TODO: Need to check values out of model are signs correct?
-#Do I need to cap max amount emitted (to 80% we used)? 
+#TODO: 
 # Add loading bar
 
 ui <- fluidPage(
@@ -29,7 +28,7 @@ ui <- fluidPage(
     selectInput(inputId = "Region",
                 label = "Region",
                 selected = c("Arid", "Reported"),
-                choices = c("Arid", "Warm sub-humid, tidal", "Warm humid",
+                choices = c("Arid", "Warm humid",
                             "Warm sub-humid", "Reported"),
                 multiple = TRUE)
       ,
@@ -119,10 +118,10 @@ server <- function(input, output) {
       if(input$units == "Cars per annum") denom <- 4.7
       if(input$units == "Tonnes") denom <- 1
 
-      cdat <- data.frame(Region = c("Arid", "Warm sub-humid, tidal",
+      cdat <- data.frame(Region = c("Arid", "Warm sub-humid",
                                     "Warm humid",
-                                    "Warm sub-humid", "Reported"),
-        Cd = c(1156.4, 1978.5, 1911.0, 1924.2, 56.885), stringsAsFactors = FALSE)
+                                     "Reported"),
+        Cd = c(c(264.6, 540.5, 520.7)*3.67*0.8,56.885), stringsAsFactors = FALSE)
       irow <- which(cdat$Region %in% input$Region)
       nchoices <- length(irow)
       Cd <- cdat[irow,"Cd"]
@@ -135,7 +134,7 @@ server <- function(input, output) {
                       calcdef(years, input$A0, Cd[i], input$d, -input$rd)/denom
                       ))
       }
-      emcols <- c("#1b9e77", "#7570b3","#e7298a", "#66a61e",'#d95f02')
+      emcols <- c("#7570b3","#e7298a", "#66a61e",'#d95f02')
       p <- plot_ly(x = years, y = carbon[[1]], mode = "lines", name = cdat$Region[irow[1]],
                    line = list(color=emcols[irow[1]], width = 4)) %>%
         layout(title = "Emissions from mangrove deforestation",

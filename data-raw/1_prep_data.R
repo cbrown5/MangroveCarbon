@@ -12,7 +12,7 @@ load_all('MangroveCarbon')
 # Load data
 #
 
-# emdat <- read.csv('MangroveCarbon/data-raw/emission_dat_1March2018-deeper1m.csv', header = T)
+# emdat <- read.csv('MangroveCarbon/data-raw/emission_dat_1March2018-deeper1m.csv', header = T) #to get soils deeper than 1m
  emdat <- read.csv('MangroveCarbon/data-raw/emission_dat_1March2018.csv', header = T)
 fdat <- read.csv('MangroveCarbon/data-raw/dat_forest_loss.csv', header = T)
 defrates <- read.csv('MangroveCarbon/data-raw/defrates.csv', header = T)

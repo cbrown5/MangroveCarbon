@@ -5,9 +5,9 @@ account: seascapemodels
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 280458
-bundleId: 1227416
+bundleId: 1246018
 url: https://seascapemodels.shinyapps.io/inst/
-when: 1518866442.86722
+when: 1519863875.82999
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: Rplots.pdf
