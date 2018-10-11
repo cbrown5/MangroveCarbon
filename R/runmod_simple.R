@@ -1,4 +1,4 @@
-runmod_simple <- function(t, Ainit, d, g, eg, ed, CPerHadef, CperHAdeg){
+runmod_simple <- function(t, Ainit, d, g, CPerHadef, CperHAdeg){
 	#
 	# Preallocation
 	#

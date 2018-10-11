@@ -17,9 +17,9 @@ ui <- fluidPage(
       # Input: Slider for the number of bins ----
       sliderInput(inputId = "d",
                   label = "Deforestation rate (per year)",
-                  min = -0.5,
-                  max = 0,
-                  value = -0.005)
+                  min = 0,
+                  max = 0.5,
+                  value = 0.005)
     ,
     numericInput(inputId = "A0",
                     label = "Area of mangroves (hectares)",
@@ -61,7 +61,8 @@ ui <- fluidPage(
                      Our projections include carbon stored in soil, which is lost to the atmosphere when mangroves are removed. 
                       The orange line labelled 'Reported' shows the emissions projected assuming carbon is only
                       stored in trees. When Mexico (and other mangrove nations) calculated their targets for 
-                     emissions for the Paris Climate Agreement they only accounted for carbon stored in trees.")),
+                     emissions for the Paris Climate Agreement they only accounted for carbon stored in trees."), 
+                    p("The graph may take a moment to load.")),
                  fluidRow(
                    plotlyOutput("plot1")),
                  fluidRow(
@@ -82,17 +83,17 @@ ui <- fluidPage(
                    a("Adame et al. The undervalued contribution of mangrove protection in Mexico to carbon emission targets. Conservation Letters. In Press", href="http://onlinelibrary.wiley.com/doi/10.1111/conl.12445/full"),
                    p(),
                    p("All the numbers and calculations used by this web app are supported by that peer-reviewed publication
-                     See that publication for further details of the data and models underling this app."),
+                     See that publication for further details of the data and models underlying this app."),
                    a("Click here if you want to see the code underneath the hood of this model.", 
                       href = "http://www.seascapemodels.org/MangroveCarbon/"), 
-                   p("The web app was designed by Drs Chris Brown and Fernanda Adame") 
+                   p("The web app was designed by Drs Chris Brown and Fernanda Adame using the R program, RShiny and plotly. ") 
                    ),
                  fluidRow(p("Contact Chris Brown (chris.brown@griffith.edu.au) if you have any queries about the web app"))
                    ),
         tabPanel("Model Description",
                  fluidRow(
                    p("The data used here come from surveys of carbon in soils, trees and dead-wood in Mexicos mangrove forests."),
-                   p("The surveys covered Mexico's major four climate regions."),
+                   p("The surveys covered Mexico's three major climate regions."),
                    p("The model estimates annual emissions based on the carbon estimates for each region and a rate of forest loss. 
                      Forest loss occurs at a constant rate. Carbon dioxide may take some time to be released once a mangrove forest
                       is cleared. The 'Emission rate' slider controls this rate of emissions once an area of forest is lost. 
@@ -108,10 +109,9 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
-  calcdef <- function(t, A0, Cd, d, rd){
-    (A0 * Cd * (exp(d) - 1) *
-       (-rd * exp(d*t) + d*exp(rd*t) + rd - d))/
-      (d * (rd - d))
+  calcdef <- function(tsteps, A1, C, d, r){
+    A1 * C - ((exp(-tsteps*r) * (A1*C*r*exp(tsteps*r) - A1 * C*d*exp(tsteps*d)))/ 
+                (exp(tsteps * d)*r - d*exp(tsteps*d)))
   }
     output$plot1 <- renderPlotly({
       if(input$units == "Megatonnes") denom <- 1E6
@@ -131,7 +131,7 @@ server <- function(input, output) {
       for (i in 1:nchoices){
         carbon <- c(carbon,
                     list(
-                      calcdef(years, input$A0, Cd[i], input$d, -input$rd)/denom
+                      calcdef(years, input$A0, Cd[i], input$d, input$rd)/denom
                       ))
       }
       emcols <- c("#7570b3","#e7298a", "#66a61e",'#d95f02')
