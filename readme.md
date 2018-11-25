@@ -10,7 +10,7 @@ This is supplementary material prepared in support of the publication:
 
 Please cite that publication if you use this code.
 
-An interactive web app that runs these models is available on the [Shiny Server](https://seascapemodels.shinyapps.io/inst/).
+An interactive web app that runs these models is available from the [Global Wetlands Program](https://wetlands.app/mangrove-carbon-simulator/).
 
 We identified a bug in the function for estimating carbon emissions, this has been fixed in the app (10-10-2018), so please pull the latest update if you downloaded this package before that date. The bug caused under-estimation of emissions at very high deforestation rates (>10% pa). We have not yet updated the equations in this package for estimating deforestation and degradation. If degradation is important to you, let me know and I may be able to move fixing the bug further up my priority list.  
 

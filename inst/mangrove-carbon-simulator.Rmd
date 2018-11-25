@@ -137,6 +137,8 @@ The data used here come from surveys of carbon in soils, trees and dead-wood in 
 See that publication for further details of the data and models underlying this app.  
 [Click here if you want to see the code underneath the hood of this model](http://www.seascapemodels.org/MangroveCarbon/)
 The web app was designed by Drs Chris Brown and Fernanda Adame using the R program, RShiny and plotly.  
+
+Design and deployment has been supported by the [Global Wetlands Program at Griffith University](https://globalwetlandsproject.org).  
  
 Contact Chris Brown (chris.brown@griffith.edu.au) if you have any queries about the web app. 
 
