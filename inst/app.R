@@ -110,6 +110,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   calcdef <- function(tsteps, A1, C, d, r){
+    if (d == r) d <- d+(d/10000)
     A1 * C - ((exp(-tsteps*r) * (A1*C*r*exp(tsteps*r) - A1 * C*d*exp(tsteps*d)))/ 
                 (exp(tsteps * d)*r - d*exp(tsteps*d)))
   }

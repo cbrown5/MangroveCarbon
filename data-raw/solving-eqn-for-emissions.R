@@ -91,14 +91,14 @@ runmod <- function(t, A0, d, g, rd, rg, Cd, Cg){
   return(outnum)
 } 
 
-d <- 0.1/100
+d <- 0.11
 g <- 0
 CEana1 <- A1 * C - ((exp(-tsteps*r) * (A1*C*r*exp(tsteps*r) - 
                                          A1 * C*d*exp(tsteps*d)))/
                       (exp(tsteps * d)*r - d*exp(tsteps*d)))
 CEana2 <- runmod(tsteps, A1, -d, -g, -r, -r, C,C)
 
-plot(tsteps, CEana2, ylim = c(0, C*A1),type = 'l')
+plot(tsteps, CEana2,type = 'l')
 lines(tsteps, CEana1, col = "red")
 
 
