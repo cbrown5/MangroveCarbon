@@ -9,7 +9,7 @@ output:
 
 <style> 
 a{
-  color:#009933;
+  color:#00cc00;
 }
 
 a:hover, a:focus{
@@ -32,8 +32,10 @@ knitr::opts_chunk$set(echo = FALSE)
 library(plotly)
 library(shiny)
 library(flexdashboard)
+library(leaflet)
 ```
 
+SEe: https://rstudio.github.io/leaflet/shiny.html
 
 Column {.sidebar}
 --------------------------------------------------
@@ -99,6 +101,28 @@ inputPanel(
 Row {.tabset .tabset-fade data-height=350} 
 -------------------------------------------------- 
 
+### About 
+
+```{r}
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+m
+```
+
+
+### Instructions  
+Use the sliders and inputs on the left to explore how carbon emissions change under different deforestation rates.  You can enter the potential carbon dioxide emissions in the 'Carbon Stock' box. Seperate multiple values by commas (up to 9 allowed).  
+ 
+
+
+### Model description and contact  
+Contact Chris Brown (chris.brown@griffith.edu.au) if you have any queries about the web app. 
+
+
+Row {data-height=650}
+-------------------------------------------------- 
+
 ### Emissions from mangrove deforestation
 ```{r fig.width = 12}
 
@@ -134,7 +158,7 @@ calcdef <- function(tsteps, A1, C, d, r){
                    mode = "lines",
                    line = list(color=emcols[1], width = 4)) %>%
         layout(title = "",
-               xaxis = list(title = "Year"),
+               xaxis = list(title = input$),
                yaxis = list(title =paste0('Cumulative emissions (',input$units,')')), 
                font = pfont)
       for (i in 1:nchoices){
@@ -148,61 +172,6 @@ calcdef <- function(tsteps, A1, C, d, r){
     })
 
 ```
-
-
-### About 
-
-Forests store carbon, which helps fight climate change. 
-
-Countries measure the amount of carbon stored in their forests and wetlands when calculating their total carbon emissions.  
-
-It's a critical part of determining if they're meeting their obligations under 
-international frameworks, like the Paris Climate Agreement.  
-
-However, assessments often overlook the carbon stored in the soils 
-beneath forests.  
-
-That's a problem because in some forests, like mangroves, that's where most of the carbon is actually stored.  
-
-This leads to countries underestimating both their total carbon emissions and 
-the true value of protecting their coastal wetlands.   
-
-[Our research](https://globalwetlandsproject.org) in Mexico shows that mangrove forests store much more carbon than rainforests, per unit area.  
-
-When the mangrove trees are removed, the soil carbon is released too - it's not just the trees.  
-
-This web app is designed to help you explore the contribution of mangrove protection to mitigating emissions. It supports the publication: 
- [Adame et al. The undervalued contribution of mangrove protection in Mexico to carbon emission targets. Conservation Letters](http://onlinelibrary.wiley.com/doi/10.1111/conl.12445/full)  
- 
-Please cite that publication if you use output from this app or the [associated R package](https://github.com/cbrown5/MangroveCarbon).  
-
-### Instructions  
-Use panel on the left to explore how carbon emissions change under different deforestation rates.  
-
-You can enter the potential carbon dioxide emissions in the 'Carbon Stock' box. Separate multiple values by commas (up to 9 allowed).  
- 
-A few details. All rates are instantaneous annual values. You can plot the emissions in different units, including in terms of annual car emissions. 'Cars per annum' is an average annual emission rate from cars in the USA. 
-
-Hover over the plot for more options. For example the camera icon lets you save the plot as an image. 
-
-
-### Model description and contact  
-
-The data used here come from actual field surveys of carbon in soils, trees and dead-wood in Mexico's mangrove forests across the country's three major climate regions.
-The model estimates annual emissions based on the carbon estimates for each region and a rate of forest loss. Forest loss occurs at a constant rate.   
-
-Carbon dioxide may take some time to be released once a mangrove forest is cleared. The 'Emission rate' slider controls this rate of emissions once an area of forest is lost. Evidence suggests that emissions are lost at a rate of about 10% per year (the default value used here).
-See the publication for further details of the data and models underlying this app.
- 
-[Click here if you want to see the code underneath the hood of this model](http://www.seascapemodels.org/MangroveCarbon/)  
-
-The web app was designed by Drs Chris Brown and Fernanda Adame using the R program, RShiny and plotly.  
-
-Design and deployment has been supported by the [Global Wetlands Program at Griffith University](https://globalwetlandsproject.org).  
- 
-Contact Chris Brown (chris.brown@griffith.edu.au) if you have any queries about the web app. 
-
-
 
 
 
