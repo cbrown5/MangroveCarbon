@@ -57,7 +57,14 @@ dat <- data.frame(mn1 = rowMeans(xout1)/denom,
 yrsteps <- tsteps+2018
 ppi <- 300
 width <- 8
-height <- 6
+height <- 6 
+
+
+dat_for_fern <- dat
+dat_for_fern$years <- yrsteps
+dat_for_fern <- subset(dat_for_fern, dat_for_fern$years %in% unique(round(yrsteps)))
+write.csv(dat_for_fern, "baja-data.csv")
+
 # 
 # png("//staff.ad.griffith.edu.au/ud/fr/s2973410/Documents/documents/Collaborative projects/blue-c-baja/emission-plot-v2.png", 
     # width = width*ppi, height = height*ppi, pointsize = 50)
