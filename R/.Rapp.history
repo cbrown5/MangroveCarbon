@@ -1,0 +1,219 @@
+rm(list = ls())#
+library(devtools)#
+#
+##
+# Load data#
+##
+#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)#
+#
+##
+# Calculate rates of loss #
+##
+#
+vcalc_lossrate <- Vectorize(calc_lossrate, vectorize.args = 'thisregion', SIMPLIFY = F)#
+#
+nrep <- 100#
+set.seed(42)#
+datscnrs <- vcalc_lossrate(fdat, levels(fdat$region), nrep)
+vcalc_lossrate <- Vectorize(calc_lossrate, vectorize.args = 'thisregion', SIMPLIFY = F)
+?rnorm
+sw <- rbind(45, 120)#
+#
+col <- c('SandyBrown', 'white')#
+#
+par(las=1)#
+x <- barplot(sw, col = col, #
+        border = NA, #
+        yaxt = 'n', #
+        xlim = c(0, 2), ylim = c(0, 200), #
+        main = 'Scotch',#
+         beside = F, #
+        names.arg = NA)#
+lines(c(0.2, 1.2), rep(0.07,2), col = 'grey20')#
+lines(c(0.2, 0.2), c(0.07,165), col = 'grey20')#
+lines(c(1.2, 1.2), c(0.07,165), col = 'grey20')#
+#
+axis(2, labels = c(NA,paste(sw[1], 'ml')), at = c(0,sw[1]), #
+     col = 'white', col.ticks = 'grey20')#
+#
+points(rep(0.32, 3), c(113, 151, 191), #
+       pch = 16, cex = 1.5,#
+       col = 'lightblue',#
+      xpd = NA)#
+#
+legend(x = 1.33, y = 200, #
+       legend = c('Whisky','Water'), #
+       pch = 16, cex = 1, #
+       col = c('SandyBrown', 'lightblue'), #
+       xpd = NA, #
+       bty ='n')
+# Compare numerical and analytical model#
+# Uses an age structured carbon stock model. #
+# CJ Brown 14 Sept 2016#
+##
+#
+rm(list = ls())#
+library(devtools)#
+#
+load_all('~/Code/MangroveCarbon')#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)#
+#
+vcalc_lossrate <- Vectorize(calc_lossrate, vectorize.args = 'thisregion', SIMPLIFY = F)#
+#
+nrep <- 1#
+set.seed(42)#
+datscnrs <- vcalc_lossrate(fdat, levels(fdat$region), nrep)#
+#
+##
+# Create data for emission rate#
+##
+emdat$emrate <- c(0.1, 0.1, 0.3, 0.3, 0.1)#
+vsampleem <- Vectorize(sampleem, vectorize.args = 'ireg', SIMPLIFY = F)#
+emsamps <- vsampleem(1:nrow(emdat), emdat, nrep, seed = 42)#
+names(emsamps) <- emdat$region#
+#
+cumredtarg <- 1442 #cumulative reducation target#
+#
+##
+# Parameters#
+##
+#
+ymax <- 50 #years#
+tpery <- 20 #integration step per year#
+dt <- 1/tpery #
+tmax <- ymax * tpery#
+t <- 2:tmax#
+y <- t/tpery#
+nsim <- ncol(datscnrs[[1]][[1]])#
+#
+n <- 30 #number of annual age classes #
+N <- n * tpery #total number of age classes#
+inity <- 2010 #initial year#
+##
+# Run numerical model for one region#
+##
+thisreg <- as.character(emdat$region)[1]#
+datout <- runregion(thisreg, datscnrs, emsamps, emdat, tperiod = 1, dt)#
+#
+##
+# Simple model#
+##
+#
+#UP to here ,working on a simpler model#
+anamod <- function(dt, A0, nyrs, d, g, Cd, Cg, Cdg, rd, rg){#
+# A0= 175621.2;nyrs= 50; d = datscnrs[[thisreg]]$defrate[1]; g = datscnrs[[thisreg]]$degrate[1]; Cd = emsamps[[thisreg]][[1]][1]; Cg = emsamps[[thisreg]][[1]][2]; Cdg = 0; rd = 0.1; rg = 0.1; dt = 0.1#
+# dt <- 0.1#
+#Coerce from data frame to numeric so we can vectorize calculations. #
+Cg <- as.numeric(Cg)#
+Cd <- as.numeric(Cd)#
+Cdg <- as.numeric(Cdg)#
+#
+t <- seq(0, nyrs, by = dt)#
+tyrs <- length(t)#
+At <- A0 * exp(t*(d+g))#
+deltaD <- At*(1 - exp(d*dt)) #amount deforested at every time-step#
+deltaG <- At*(1 - exp(g*dt)) #amount degraded at every time-step#
+# plot(deltaD + deltaG, -c(0,diff(At)), type = 'l', col = 'red'); abline(0,1)#
+#
+# #  ages <- seq(0, 100, by = dt)#
+ # x <- deltaD[1] * Cg * #amount of carbon in land#
+ # exp(-ages*rd) * # amount remaining at a given time#
+  # (1 - exp(-rd*dt)) #Amount emitted #
+ # sum(x)#
+ # deltaD[1] * Cg#
+ # dev.new()#
+ # plot(ages, x, main = round(sum(x)))#
+# sum(x)#
+#Model of emission per year. Integrates over earlier years#
+em <- rep(NA, nyrs)#
+for (yi in 1:tyrs){#
+	yrs <- 1:yi#
+	ages <- seq((yi-1),0 , by = -1)*dt#
+	Ddecay <- exp(ages*rd) * (1 - exp(rd))#
+	Gdecay <- exp(ages*rg) * (1 - exp(rg))#
+	#Gdecay <- exp(ages*(rg + d)) * (1 - exp(rg))#
+	# GDgain <- #deforested degraded land#
+	em[yi] <- #
+	sum(deltaD[yrs] * Cd * Ddecay) + #
+	sum(deltaG[yrs] * Cg * Gdecay) #+ #
+	}#
+	return(em)#
+	}#
+#
+#pacific north#
+dtana <- 0.1#
+#Increasing dtana massively increases the total emissions...#
+eout <- anamod(dtana, datscnrs[[thisreg]]$area_ha_samp[3],#
+ ymax, d = datscnrs[[thisreg]]$defrate[1], g = datscnrs[[thisreg]]$degrate[1], Cd = emsamps[[thisreg]][[1]][1], Cg =  emsamps[[thisreg]][[1]][2], Cdg = 0, rd = -0.1, rg = -0.1)#
+tana <- (1:length(eout))*dtana#
+#
+dtana2 <- 0.01#
+ eout2 <- anamod(dtana2, datscnrs[[thisreg]]$area_ha_samp[3],#
+ ymax, d = datscnrs[[thisreg]]$defrate[1], g = datscnrs[[thisreg]]$degrate[1], Cd = emsamps[[thisreg]][[1]][1], Cg =  emsamps[[thisreg]][[1]][2], Cdg = 0, rd = -0.1, rg = -0.1)#
+tana2 <- (1:length(eout2))*dtana2#
+#
+dev.new()#
+plot((1:(tmax-1))*dt, datout, ylim = c(0, max(c(eout, datout))))#
+lines(tana,eout)#
+lines(tana2, eout2, col = 'green')
+load_all('~/Code/MangroveCarbon')
+getwd()
+x = 1:100
+r = -0.2
+sum(r*exp(-x*r))
+r=0.2
+sum(r*exp(-x*r))
+r=0.9
+sum(r*exp(-x*r))
+r=0.01
+sum(r*exp(-x*r))
+r=0.2
+sum(r*exp(-x*r))
+r=0.1
+sum(r*exp(-x*r))
+x = 1:100000
+sum(r*exp(-x*r))
+r
+r=0.01
+sum(r*exp(-x*r))
+r=5
+sum(r*exp(-x*r))
+plot(x, r*exp(-x*r))
+r
+r=0.01
+plot(x, r*exp(-x*r))
+x=1:1000
+plot(x, r*exp(-x*r))
+r
+r=0.9
+plot(x, r*exp(-x*r))
+# Prep data for analysis#
+# CJ Brown 1 Aug 2016#
+#
+# Find attached the table where I included the propagating error for each parameter. I also found a paper that Cath wrote (attached) with a model of C emissions from the sediment in the first 20 years after clearing. For our model, add a loss of 30% of the total C in the first year due to the loss of trees in the South Pacific and Gulf of Mexico (where trees are tall) , and a 10% from tree loss for the rest of the regions in the first year (where trees are smaller). Cath found that around 100 tonnes CO2 are lost in the first years from the sediment, the loss decreases exponentially until 5years, when emissions stabilise at around 30 ton CO2 yr.#
+# UP TO HERE... NEed to reitnerpret errors in areas as classification (binary) errors. #
+#need to create sims for emisssion rates errors and save df#
+#need to update data.R#
+#
+rm(list = ls())#
+library(devtools)#
+load_all('~/Code/MangroveCarbon')#
+#
+##
+# Load data#
+##
+#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)#
+#
+##
+# Calculate rates of forest loss #
+##
+#
+vcalc_lossrate <- Vectorize(calc_lossrate, vectorize.args = 'thisregion', SIMPLIFY = F)
+emdat
+fdat
+emdat <- read.csv('emission_dat.csv', header = T)

@@ -1,0 +1,1017 @@
+182072*0.95
+182072*1.05
+calc_lossrate
+fdat$region
+fdat
+197798-182072
+(197798-182072)/197798
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1
+sum(x)
+sum(x)/m
+sum(x)
+xobs <- x
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)
+xobs <- x
+change <- ifelse(runif(m)<=errorrate, 1,0)
+change
+sum(change)
+m
+sum(change)/m
+abs(1-xobs[change ==1])
+xobs[change ==1]
+xobs[change ==1] <- abs(1-xobs[change ==1])
+areaobs[i] <- sum(xobs)
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}
+hist(areaobs)
+sd(areaobs)
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+sd(areaobs)
+m <- 100#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+sd(areaobs)
+m <- 100000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+sd(areaobs)
+m* errorrate*(1-errorrate)
+sd(areaobs)
+n*errorrate
+m* errorrate*(1-errorrate)
+m*errorrate
+m <- 100000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+sd(areaobs)#
+m*errorrate#
+m* errorrate*(1-errorrate)
+mean(areaobs)
+m*(1-errorrate)
+m*errorrate
+m <- 100#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}
+hist(areaobs)
+mean(areaobs)
+sd(areaobs)
+m*errorrate
+m* errorrate*(1-errorrate)
+(m/2)* errorrate*(1-errorrate)
+sd(areaobs)
+(m/2)*errorrate
+mean(areaobs)
+sd(areaobs)#
+(m/2)* errorrate*(1-errorrate)
+mean(areaobs)#
+(m/2)*errorrate
+m <- 100#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m/2)*errorrate#
+#
+sd(areaobs)#
+(m/2)* errorrate*(1-errorrate)
+xobs
+m <- 100#
+x <- rep(1, m)#
+# x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+(m/2)*errorrate#
+#
+sd(areaobs)#
+m* errorrate*(1-errorrate)
+m <- 100#
+x <- rep(1, m)#
+# x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+m*errorrate#
+#
+sd(areaobs)#
+m* errorrate*(1-errorrate)
+m
+errorrate
+m <- 100#
+x <- rep(1, m)#
+# x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+m*(1-errorrate)
+sd(areaobs)#
+m* errorrate*(1-errorrate)
+m <- 100#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+m*(1-errorrate)
+sum(x)*(1-errorrate)
+m <- 100#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+sd(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+m <- 100000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+sd(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+sum(x)* errorrate*(1-errorrate)
+sqrt(sum(x)* errorrate*(1-errorrate))
+sd(areaobs)
+var(areaobs)
+sum(x)* errorrate*(1-errorrate)
+var(areaobs)
+m <- 100000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=errorrate, 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+x
+sum(x)
+m <- 1000
+m
+x <- rep(0, m)#
+x[1:(m/2)] <- 1
+x
+m <- 1000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+var(areaobs)
+sum(x)* errorrate*(1-errorrate)
+m <- 1000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+sum(areaobs)
+sum(areaobs)/m
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-errorrate)#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+sum(x)*(1-(errorrate/2))
+var(areaobs)
+sum(x)* errorrate*(1-errorrate)
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 1000#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-(errorrate/2))#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+m <- 10000#
+x <- rep(0, m)#
+x[1:(m/2)] <- 1#
+#
+sum(x)#
+n <- 100#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- x#
+	change <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	xobs[change ==1] <- abs(1-xobs[change ==1])#
+	areaobs[i] <- sum(xobs)#
+	}#
+hist(areaobs)#
+#
+mean(areaobs)#
+sum(x)*(1-(errorrate/2))#
+#
+var(areaobs)#
+sum(x)* errorrate*(1-errorrate)
+sum(x)*(1-(errorrate))
+mean(areaobs)
+sum(x)*(1-(errorrate))
+errorrate2 <- errorate/2
+errorrate2 <- errorrate/2
+sum(x)* errorrate2*(1-errorrate2)
+var(areaobs)
+sd(areaobs)
+var(areaobs)#
+errorrate2 <- errorrate/2#
+sum(x)* errorrate2*(1-errorrate2)
+errorrate2 <- errorrate
+sum(x)* errorrate2*(1-errorrate2)
+m/(m*2)
+change
+yobs <- ifelse(runif(m)<=(errorrate/2), 0,1)
+sum(yobs0
+sum(yobs)
+sum(yobs)/m
+m <- 10000#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 100#
+errorrate <- 0.05#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate/2), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate/2), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)
+mean(areaobs)
+sum(x)*(1-(errorrate))
+mean(areaobs)
+m*errorrate
+errorrate <- 0.025
+m*errorrate
+(m*errorrate + m*(1-errorrate))/2
+m/2
+mean(areaobs)
+(m*errorrate + m*(1-errorrate))/2
+mean(areaobs)
+hist(areaobs)
+(m*errorrate + m*(1-errorrate))
+var(areaobs)
+sum(x)* errorrate*(1-errorrate)
+m* errorrate*(1-errorrate)
+var(areaobs)
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+var(areaobs)
+m <- 10000#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 100#
+errorrate <- 0.025#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m*errorrate + m*(1-errorrate))#
+#
+var(areaobs)#
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+m <- 100000#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 100#
+errorrate <- 0.025#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m*errorrate + m*(1-errorrate))#
+#
+var(areaobs)#
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+99999
+m*errorrate
+m*(1-errorrate)
+var(areaobs)
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+m <- 100000#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 100#
+errorrate <- 0.025#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m*errorrate + m*(1-errorrate))#
+#
+var(areaobs)#
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+m <- 100000#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 10000#
+errorrate <- 0.025#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m*errorrate + m*(1-errorrate))#
+#
+var(areaobs)#
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+m <- 1000#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 10000#
+errorrate <- 0.025#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m*errorrate + m*(1-errorrate))#
+#
+var(areaobs)#
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+m <- 100#
+x <- rep(0, m)#
+y <- rep(1, m)#
+#
+m/(m*2)#
+#
+n <- 10000#
+errorrate <- 0.025#
+areaobs <- rep(NA, n)#
+for (i in 1:n){#
+	xobs <- ifelse(runif(m)<=(errorrate), 1,0)#
+	yobs <- ifelse(runif(m)<=(errorrate), 0,1)#
+#
+	areaobs[i] <- sum(xobs+yobs)#
+	}#
+hist(areaobs)#
+mean(areaobs)#
+(m*errorrate + m*(1-errorrate))#
+#
+var(areaobs)#
+m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)
+(m*errorrate + m*(1-errorrate))
+mean(areaobs)
+hist(areaobs)
+hist(rnorm(1000, mean = (m*errorrate + m*(1-errorrate)), sd = sqrt(m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate)))
+)
+hist(rnorm(1000, mean = (m*errorrate + m*(1-errorrate)), sd = sqrt(m* errorrate*(1-errorrate) + m* errorrate*(1-errorrate))))
+hist(areaobs)
+204/1275
+20/2000
+200+112+29
+62+144 were missed
+62+144+147
+p = 2640/10340
+p
+p_true = 2640/10340
+p_true
+200+112+29
+2297 + 200+112+29
+(2640-2638)/2640
+(2640-2638)
+2640-229
+2640-2297
+(2640-2297)/2640
+(2640-2297)/2297
+# Prep data for analysis#
+# CJ Brown 1 Aug 2016#
+#
+# Find attached the table where I included the propagating error for each parameter. I also found a paper that Cath wrote (attached) with a model of C emissions from the sediment in the first 20 years after clearing. For our model, add a loss of 30% of the total C in the first year due to the loss of trees in the South Pacific and Gulf of Mexico (where trees are tall) , and a 10% from tree loss for the rest of the regions in the first year (where trees are smaller). Cath found that around 100 tonnes CO2 are lost in the first years from the sediment, the loss decreases exponentially until 5years, when emissions stabilise at around 30 ton CO2 yr.#
+rm(list = ls())#
+library(devtools)#
+load_all('~/Code/MangroveCarbon')#
+#
+##
+# Load data#
+##
+#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)
+calc_lossrate(fdat, 'yucatan', 1)
+calc_lossrate2(fdat, 'yucatan', 1)
+# Prep data for analysis#
+# CJ Brown 1 Aug 2016#
+#
+# Find attached the table where I included the propagating error for each parameter. I also found a paper that Cath wrote (attached) with a model of C emissions from the sediment in the first 20 years after clearing. For our model, add a loss of 30% of the total C in the first year due to the loss of trees in the South Pacific and Gulf of Mexico (where trees are tall) , and a 10% from tree loss for the rest of the regions in the first year (where trees are smaller). Cath found that around 100 tonnes CO2 are lost in the first years from the sediment, the loss decreases exponentially until 5years, when emissions stabilise at around 30 ton CO2 yr.#
+rm(list = ls())#
+library(devtools)#
+load_all('~/Code/MangroveCarbon')#
+#
+##
+# Load data#
+##
+#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)#
+calc_lossrate(fdat, 'yucatan', 1)#
+calc_lossrate2(fdat, 'yucatan', 1)
+calc_lossrate
+calc_lossrate2
+nrep = 1#
+thisregion <- 'yucatan'#
+fdat1 <- dplyr::filter(fdat, region == thisregion)#
+area_ha_samp <- matrix(NA,nrow = 3,ncol= nrep)#
+	 defrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 defrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate_ann <- matrix(NA, nrow = 2, ncol= nrep)
+area_ha_samp[,irep] <- pmax(#
+	 fdat1$area_ha + rnorm(3, sd = (fdat1$error_area/100)/fdat1$area_ha), #
+	 rep(0,3))
+irep = 1#
+thisregion <- 'yucatan'#
+fdat1 <- dplyr::filter(fdat, region == thisregion)#
+area_ha_samp <- matrix(NA,nrow = 3,ncol= nrep)#
+	 defrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 defrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 area_ha_samp[,irep] <- pmax(#
+	 fdat1$area_ha + rnorm(3, sd = (fdat1$error_area/100)/fdat1$area_ha), #
+	 rep(0,3))
+area_ha_samp
+fdat1$area_ha
+fdat1$area_ha + rnorm(3, sd = (fdat1$area_ha*(fdat1$error_area/100))/	1.96)
+(fdat1$area_ha*(fdat1$error_area/100))/	1.96
+(fdat1$error_area/100)/fdat1$area_ha
+fdat1$error_area
+(fdat1$error_area/100)
+fdat1$area_ha
+(fdat1$error_area/100)*fdat1$area_ha
+area_ha_samp[,irep] <- pmax(#
+	 fdat1$area_ha + rnorm(3, sd = (fdat1$error_area/100)*fdat1$area_ha), #
+	 rep(0,3))
+area_ha_samp
+defrate[,irep] <- log(area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])/diff(fdat1$year)
+defrate
+defrate_ann[,irep] <- (area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])^(1/diff(fdat1$year)) - 1
+defrate_ann
+calc_lossrate(fdat, 'yucatan', 1)
+calc_lossrate2(fdat, 'yucatan', 1)
+# Prep data for analysis#
+# CJ Brown 1 Aug 2016#
+#
+# Find attached the table where I included the propagating error for each parameter. I also found a paper that Cath wrote (attached) with a model of C emissions from the sediment in the first 20 years after clearing. For our model, add a loss of 30% of the total C in the first year due to the loss of trees in the South Pacific and Gulf of Mexico (where trees are tall) , and a 10% from tree loss for the rest of the regions in the first year (where trees are smaller). Cath found that around 100 tonnes CO2 are lost in the first years from the sediment, the loss decreases exponentially until 5years, when emissions stabilise at around 30 ton CO2 yr.#
+rm(list = ls())#
+library(devtools)#
+load_all('~/Code/MangroveCarbon')#
+#
+##
+# Load data#
+##
+#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)#
+calc_lossrate(fdat, 'yucatan', 1)#
+calc_lossrate2(fdat, 'yucatan', 1)
+area_ha_samp[1:2,irep]
+irep = 1#
+thisregion <- 'yucatan'#
+fdat1 <- dplyr::filter(fdat, region == thisregion)#
+area_ha_samp <- matrix(NA,nrow = 3,ncol= nrep)#
+	 defrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 defrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 area_ha_samp[,irep] <- pmax(#
+	 fdat1$area_ha + rnorm(3, sd = (fdat1$error_area/100)*fdat1$area_ha), #
+	 rep(0,3))#
+	 defrate[,irep] <- log(area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])/diff(fdat1$year)#
+	 defrate_ann[,irep] <- (area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])^(1/diff(fdat1$year)) - 1#
+	 (diff(area_ha_samp[,irep])/area_ha_samp[2:3,irep]) / diff(fdat1$year)#
+#
+	 area_deg_samp <- pmax(#
+	 fdat1$area_degraded_ha[2:3] + rnorm(2, sd = (fdat1$error_area[2:3]/100)*fdat1$area_degraded_ha[2:3]), #
+	 rep(0, 2))#
+#
+	 degrate[,irep] <- log((area_ha_samp[1:2,irep]- area_deg_samp) / area_ha_samp[1:2,irep])/diff(fdat1$year)
+irep <- nrep <- 1
+area_ha_samp <- matrix(NA,nrow = 3,ncol= nrep)#
+	 defrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	 defrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 degrate_ann <- matrix(NA, nrow = 2, ncol= nrep)#
+	 area_ha_samp[,irep] <- pmax(#
+	 fdat1$area_ha + rnorm(3, sd = (fdat1$error_area/100)*fdat1$area_ha), #
+	 rep(0,3))#
+	 defrate[,irep] <- log(area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])/diff(fdat1$year)#
+	 defrate_ann[,irep] <- (area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])^(1/diff(fdat1$year)) - 1#
+	 (diff(area_ha_samp[,irep])/area_ha_samp[2:3,irep]) / diff(fdat1$year)#
+#
+	 area_deg_samp <- pmax(#
+	 fdat1$area_degraded_ha[2:3] + rnorm(2, sd = (fdat1$error_area[2:3]/100)*fdat1$area_degraded_ha[2:3]), #
+	 rep(0, 2))#
+#
+	 degrate[,irep] <- log((area_ha_samp[1:2,irep]- area_deg_samp) / area_ha_samp[1:2,irep])/diff(fdat1$year)
+log((area_ha_samp[1:2,irep]- area_deg_samp) / area_ha_samp[1:2,irep])/diff(fdat1$year)
+area_ha_samp <- matrix(NA,nrow = 3,ncol= nrep)#
+	defrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	degrate <- matrix(NA, nrow = 2, ncol= nrep)#
+	area_ha_samp[,irep] <- fdat1$area_ha + rnorm(3, sd = (fdat1$area_ha*(fdat1$error_area/100))/	1.96)#
+	defrate[,irep] <- (diff(area_ha_samp[,irep])/area_ha_samp[2:3,irep]) / diff(fdat1$year)#
+#
+	area_deg_samp <- fdat1$area_degraded_ha + rnorm(3, sd = (fdat1$area_degraded_ha * (fdat1$error_area/100)) / 1.96)#
+	degrate[,irep] <- ((area_deg_samp[2:3] - area_ha_samp[1:2,irep]) /area_ha_samp[1:2,irep]) / diff(fdat1$year)
+((area_deg_samp[2:3] - area_ha_samp[1:2,irep]) /area_ha_samp[1:2,irep]) / diff(fdat1$year)
+area_deg_samp[2:3]
+area_ha_samp[1:2,irep]
+/area_ha_samp[1:2,irep]
+area_ha_samp[1:2,irep]
+diff(fdat1$year)
+diff(area_ha_samp[,irep]
+)
+area_ha_samp[2:3,irep]
+(diff(area_ha_samp[,irep])/area_ha_samp[2:3,irep])
+(diff(area_ha_samp[,irep])/area_ha_samp[2:3,irep]) / diff(fdat1$year)
+((area_deg_samp[2:3] - area_ha_samp[1:2,irep]) /area_ha_samp[1:2,irep]) / diff(fdat1$year)
+log((area_ha_samp[1:2,irep]- area_deg_samp) / area_ha_samp[1:2,irep])/diff(fdat1$year)
+area_ha_samp[,irep] <- pmax(#
+	 fdat1$area_ha + rnorm(3, sd = (fdat1$error_area/100)*fdat1$area_ha), #
+	 rep(0,3))#
+	 defrate[,irep] <- log(area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])/diff(fdat1$year)#
+	 defrate_ann[,irep] <- (area_ha_samp[2:3,irep] / area_ha_samp[1:2,irep])^(1/diff(fdat1$year)) - 1#
+	 (diff(area_ha_samp[,irep])/area_ha_samp[2:3,irep]) / diff(fdat1$year)#
+#
+	 area_deg_samp <- pmax(#
+	 fdat1$area_degraded_ha[2:3] + rnorm(2, sd = (fdat1$error_area[2:3]/100)*fdat1$area_degraded_ha[2:3]), #
+	 rep(0, 2))#
+#
+	 degrate[,irep] <- log((area_ha_samp[1:2,irep]- area_deg_samp) / area_ha_samp[1:2,irep])/diff(fdat1$year)
+log((area_ha_samp[1:2,irep]- area_deg_samp) / area_ha_samp[1:2,irep])/diff(fdat1$year)
+area_ha_samp[1:2,irep]
+area_deg_samp
+area_ha_samp[1:2,irep]
+area_ha_samp
+area_deg_samp
+fdat1$area_degraded_ha
+log(fdat1$area_degraded_ha)
+log(fdat1$area_degraded_ha[1:2]/fdat1$area_degraded_ha[2:3])
+log(fdat1$area_degraded_ha[1:2]/fdat1$area_degraded_ha[2:3])/diff(fdat1$year)
+fdat1$area_degraded_ha[1:2]
+log(fdat1$area_degraded_ha[2:3]/fdat1$area_degraded_ha[1:2])/diff(fdat1$year)
+fdat1$area_ha
+fdat1$area_ha[1:2]
+fdat1$area_degraded_ha[2:3]
+log(fdat1$area_ha[1:2] - fdat1$area_degraded_ha[2:3])/ #amount there is now#
+	 fdat1$area_ha[1:2])/ #amount there was#
+	 diff(fdat1$year) #timescale
+log((fdat1$area_ha[1:2] - fdat1$area_degraded_ha[2:3])/ #amount there is now#
+	 fdat1$area_ha[1:2])/ #amount there was#
+	 diff(fdat1$year) #timescale
+1-exp(0.2)
+1-exp(-0.2)
+log((fdat1$area_ha[1:2] - fdat1$area_degraded_ha[2:3])/ #amount there is now#
+	 fdat1$area_ha[1:2])/ #amount there was#
+	 diff(fdat1$year) #timescale
+defrate
+(log((fdat1$area_ha[2:3] - fdat1$area_degraded_ha[2:3])/ #amount there is now#
+	 (fdat1$area_ha[1:2] - fdat1$area_degraded_ha[1:2]))/ #amount there was#
+	 diff(fdat1$year)) -#timescale#
+	 defrate
+defrate
+(log((fdat1$area_ha[2:3] - fdat1$area_degraded_ha[2:3])/ #amount there is now#
+	 (fdat1$area_ha[1:2] - fdat1$area_degraded_ha[1:2]))/ #amount there was#
+	 diff(fdat1$year)) -#timescale#
+	 defrate
+calc_lossrate(fdat, 'yucatan', 1)
+4/5
+4^(1/5)
+# Prep data for analysis#
+# CJ Brown 1 Aug 2016#
+#
+# Find attached the table where I included the propagating error for each parameter. I also found a paper that Cath wrote (attached) with a model of C emissions from the sediment in the first 20 years after clearing. For our model, add a loss of 30% of the total C in the first year due to the loss of trees in the South Pacific and Gulf of Mexico (where trees are tall) , and a 10% from tree loss for the rest of the regions in the first year (where trees are smaller). Cath found that around 100 tonnes CO2 are lost in the first years from the sediment, the loss decreases exponentially until 5years, when emissions stabilise at around 30 ton CO2 yr.#
+rm(list = ls())#
+library(devtools)#
+load_all('~/Code/MangroveCarbon')#
+#
+##
+# Load data#
+##
+#
+emdat <- read.csv('emission_dat.csv', header = T)#
+fdat <- read.csv('dat_forest_loss.csv', header = T)#
+calc_lossrate(fdat, 'yucatan', 1)#
+calc_lossrate2(fdat, 'yucatan', 1)
+calc_lossrate2(fdat, 'yucatan', 1)
+#Doesn't look like figure in INDC#
+#
+rm(list = ls())#
+#
+##
+# Parameters#
+##
+#
+yrs <- 2013:2030#
+nyrs <- length(yrs)#
+byrs <- c(2013, 2020, 2025, 2030)#
+nb <- length(byrs)#
+subtot <- c(633, 760, 856, 941) #subtotals for everything but LULUCF#
+luc <- 32#
+#
+target1 <- 776 #target for everything else#
+target2 <- -14 #target for LUCUCF#
+targettot <- 762#
+#
+#Annual emissions BAU scenario#
+#
+annemm <- rep(NA, nyrs)#
+for (t in 2:nb){#
+	# BAU#
+	iyrs <- (byrs[t-1]:byrs[t]) - byrs[1] + 1#
+	ratechange <- (subtot[t] - subtot[t-1])/(byrs[t] - byrs[t-1])#
+	annemm[iyrs] <- luc + (ratechange * 0:(length(iyrs)-1)) + subtot[t-1]	#
+	}
+# Estimate national annual and cumulative carbon emissions#
+# CJ Brown 18 Aug 2016#
+##
+#Numbers from INDC 2015#
+##
+#
+#Doesn't look like figure in INDC#
+#
+rm(list = ls())#
+#
+##
+# Parameters#
+##
+#
+yrs <- 2013:2030#
+nyrs <- length(yrs)#
+byrs <- c(2013, 2020, 2025, 2030)#
+nb <- length(byrs)#
+subtot <- c(633, 760, 856, 941) #subtotals for everything but LULUCF#
+luc <- 32#
+#
+target1 <- 776 #target for everything else#
+target2 <- -14 #target for LUCUCF#
+targettot <- 762#
+#
+#Annual emissions BAU scenario#
+#
+annemm <- rep(NA, nyrs)#
+for (t in 2:nb){#
+	# BAU#
+	iyrs <- (byrs[t-1]:byrs[t]) - byrs[1] + 1#
+	ratechange <- (subtot[t] - subtot[t-1])/(byrs[t] - byrs[t-1])#
+	annemm[iyrs] <- luc + (ratechange * 0:(length(iyrs)-1)) + subtot[t-1]	#
+	}
+#Annual emmissions iNDC path#
+steps <- yrs - byrs[1]#
+ndc_rate <- (target1 - subtot[1]) / (byrs[4] - byrs[1])#
+ndc_luc <- (target2 - luc) / (byrs[4] - byrs[1])#
+annemm_ndc <- (subtot[1] + (ndc_rate * steps)) + #
+(luc + (ndc_luc * steps))#
+plot(yrs, annemm, type = 'l', lwd = 2, col = 'tomato', #
+ylim = c(500, 1100), xlim = c(2013, 2030))#
+#
+lines(yrs, annemm_ndc, lwd = 2, col = 'darkgreen')
+subtot
+sum(subtot)
+#Digitise emissions scenarios#
+# CJ Brown 18 Aug 2016#
+library(png)#
+#
+pic <- readPNG('scenarios.png')#
+#
+plot(c(0,1), c(0,1))#
+rasterImage(pic, xleft = 0, xright = 1, ybottom = 0, ytop = 1, interpolate = F)#
+##
+# Corners#
+##
+#Locator corners#
+xycorners <- locator(2)#
+xycorners <- cbind(xycorners$x, xycorners$y)#
+#Type in their values#
+xycvals <- matrix(c(2013, 2030, 500, 1100), nrow = 2, byrow = F)#
+#
+##
+# Points#
+##
+#Locate points#
+xypts <- locator(40)#
+#
+xypts3 <- cbind(xypts$x, xypts$y)#
+#
+##
+# Convert points using corners#
+##
+#Xpts#
+xrise <- xycvals[2,1] - xycvals[1,1]#
+xrun <- xycorners[2,1] - xycorners[1,1]#
+xa <- xrise/xrun#
+xb <- xycvals[1,1]-(xa * xycorners[1,1])#
+xvals <- xypts3[,1]*xa + xb#
+#
+#Ypts#
+yrise <- xycvals[2,2] - xycvals[1,2]#
+yrun <- xycorners[2,2] - xycorners[1,2]#
+ya <- yrise/yrun#
+yb <- xycvals[2,2]-(ya * xycorners[2,2])#
+yvals <- (xypts3[,2]*ya) + yb
+bau <- read.csv('BAU.csv')#
+indc <- read.csv('iNDC.csv')#
+#
+yrs <- 2013:2030#
+bauvals <- approx(x = bau$xvals, y = bau$yvals, xout = yrs-0.1)#
+ndcvals <- approx(x = indc $xvals, y = indc $yvals, xout = yrs)
+plot(yrs, bauvals$y, type = 'l', lwd = 2, col = 'tomato', #
+ylim = c(500, 1100), xlim = c(2013, 2030))#
+#
+lines(yrs, ndcvals$y, lwd = 2, col = 'darkgreen')#
+#
+sum(bauvals$y)#
+sum(ndcvals$y)
+sum(bauvals$y) - sum(ndcvals$y)
+sum(bauvals$y)
+sum(ndcvals$y)
+sum(bauvals$y) - sum(ndcvals$y)
+sum(bauvals$y)
+sum(ndcvals$y)

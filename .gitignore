@@ -1,6 +1,4 @@
 .Rproj.user
-.Rbuildignore
 .Rhistory
-.Rapp.history
-.DS_Store
-/rsconnect
+.RData
+.Ruserdata
